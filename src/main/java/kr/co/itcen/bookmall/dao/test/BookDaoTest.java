@@ -48,11 +48,12 @@ public class BookDaoTest {
 
 		BookVo vo1 = new BookVo();
 		
-		vo1.setBookNumber(42);
-		vo1.setCategoryNumber(2);
+		vo1.setNo((long) 1);
 		vo1.setTitle("90년대생이 온다");
-		vo1.setPrice((long) 50000);
-		vo1.setBookStatus("품절");
+		vo1.setBook_price(10000);
+		vo1.setCategory_no(6);
+		
+		
 		dao.insert(vo1);
 		System.out.println(vo1);
 

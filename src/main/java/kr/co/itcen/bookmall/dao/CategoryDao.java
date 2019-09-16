@@ -23,7 +23,7 @@ public class CategoryDao {
 			try {
 				connection = getConnection();
 
-				String sql = "insert into category(category_no,category_name) values(?,?)";
+				String sql = "insert into category(no,category_name) values(?,?)";
 				pstmt = connection.prepareStatement(sql);
 				
 				pstmt.setInt(1, vo1.getCategory_no());
@@ -70,14 +70,14 @@ public class CategoryDao {
 
 				connection = getConnection();
 
-				String sql = "select category_no,category_name from category;";
+				String sql = "select no,category_name from category;";
 				pstmt = connection.prepareStatement(sql);
 
 				rs = pstmt.executeQuery();
 
 				while (rs.next()) {
 
-					int category_no = rs.getInt("category_no");
+					int category_no = rs.getInt("no");
 					String category_name = rs.getString("category_name");
 					
 					CategoryVo vo = new CategoryVo();

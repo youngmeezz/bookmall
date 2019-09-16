@@ -13,9 +13,6 @@ import kr.co.itcen.bookmall.vo.UserVo;
 
 public class UserDao {
 
-	private String name;
-	private int no;
-
 	public Boolean insert(UserVo vo1) {
 		Boolean result = false;
 		Connection connection = null;
@@ -26,14 +23,15 @@ public class UserDao {
 		try {
 			connection = getConnection();
 
-			String sql = "insert into user(name,phone_number,email,password) values(?,?,?,password(?))";
+			String sql = "insert into user(no,name,phone,email,password) values(?,?,?,?,password(?))";
 			pstmt = connection.prepareStatement(sql);
 
 
-			pstmt.setString(1, vo1.getUserName());
-			pstmt.setString(2, vo1.getPhoneNumber());
-			pstmt.setString(3, vo1.getEmail());
-			pstmt.setString(4, vo1.getPassword());
+			pstmt.setLong(1, vo1.getNo());
+			pstmt.setString(2, vo1.getUserName());
+			pstmt.setString(3, vo1.getPhoneNumber());
+			pstmt.setString(4, vo1.getEmail());
+			pstmt.setString(5, vo1.getPassword());
 
 			int count = pstmt.executeUpdate();
 			result = (count == 1);
@@ -74,7 +72,7 @@ public class UserDao {
 
 			connection = getConnection();
 
-			String sql = "select user_id,name,phone_number,email,password from user;";
+			String sql = "select no,name,phone,email,password from user;";
 			pstmt = connection.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
@@ -88,7 +86,7 @@ public class UserDao {
 				String password = rs.getString("password");
 
 				UserVo vo = new UserVo();
-				vo.setUser_id(userId);
+				vo.setNo(userId);
 				vo.setUserName(userName);
 				vo.setPhoneNumber(phoneNumber);
 				vo.setEmail(email);

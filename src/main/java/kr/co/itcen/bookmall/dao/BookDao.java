@@ -24,14 +24,13 @@ public class BookDao {
 		try {
 			connection = getConnection();
 
-			String sql = "insert into book(book_id,category_no,name,price,book_status) values(?,?,?,?,?)";
+			String sql = "insert into book(no,title,book_price,category_no) values(?,?,?,?)";
 			pstmt = connection.prepareStatement(sql);
 			
-			pstmt.setInt(1, vo1.getBookNumber());
-			pstmt.setInt(2, vo1.getCategoryNumber());
-			pstmt.setString(3, vo1.getTitle());
-			pstmt.setLong(4, vo1.getPrice());
-			pstmt.setString(5, vo1.getBookStatus());
+			pstmt.setInt(1, vo1.getCategory_no());
+			pstmt.setString(2, vo1.getTitle());
+			pstmt.setLong(3, vo1.getBook_price());
+			pstmt.setInt(4, vo1.getCategory_no());
 
 			
 			int count = pstmt.executeUpdate();
@@ -74,27 +73,25 @@ public class BookDao {
 
 			connection = getConnection();
 
-			String sql = "select book_id,category_no,name,price,book_status from book;";
+			String sql = "select no,title,book_price,category_no from book;";
 			pstmt = connection.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 
-				int bookId = rs.getInt("book_id");
+				int bookId = rs.getInt("no");
+				String name = rs.getString("title");
+				int price = rs.getInt("book_price");
 				int categoryNo = rs.getInt("category_no");
-				String name = rs.getString("name");
-				Long price = rs.getLong("price");
-				String bookStatus = rs.getString("book_status");
 
 				BookVo vo = new BookVo();
 				
-				vo.setBookNumber(bookId);
-				vo.setCategoryNumber(categoryNo);
+				vo.setNo((long) bookId);
 				vo.setTitle(name);
-				vo.setPrice(price);
-				vo.setBookStatus(bookStatus);
-				
+				vo.setBook_price(price);
+				vo.setCategory_no(categoryNo);
+			
 				result.add(vo);
 			}
 

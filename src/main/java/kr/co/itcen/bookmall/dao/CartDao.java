@@ -25,13 +25,16 @@ public class CartDao {
 		try {
 			connection = getConnection();
 
-			String sql = "insert into cart(book_id,user_id,amount) values(?,?,?)";
+			String sql = "insert into cart(no,count,price,user_no,book_no) values(?,?,?,?,?)";
 			pstmt = connection.prepareStatement(sql);
 			
 			
-			pstmt.setInt(1, vo1.getBookNumber());
-			pstmt.setLong(2, vo1.getUser_id());
-			pstmt.setInt(3, vo1.getCount());
+			pstmt.setInt(1, vo1.getBook_no());
+			pstmt.setInt(2, vo1.getCount());
+			pstmt.setInt(3, vo1.getPrice());
+			pstmt.setInt(4, vo1.getUser_no());
+			pstmt.setInt(5, vo1.getBook_no());
+			
 			
 			//pstmt.setInt(1, vo1.getBookNumber());
 	
@@ -75,21 +78,26 @@ public class CartDao {
 
 			connection = getConnection();
 
-			String sql = "select book_id,user_id,amount from cart;";
+			String sql = "select (no,count,price,user_no,book_no)from cart;";
 			pstmt = connection.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 
-				int bookId = rs.getInt("book_id");
-				int userId = rs.getInt("user_id");
-				int amount = rs.getInt("amount");
+				int bookId = rs.getInt("no");
+				int amount = rs.getInt("count");
+				int price = rs.getInt("price");
+				int userNo = rs.getInt("user_no");
+				int bookNo = rs.getInt("book_no");
+				
 				CartVo vo = new CartVo();
 				
-				vo.setBookNumber(bookId);
-				vo.setUser_id((long) userId);
+				vo.setBook_no(bookId);
 				vo.setCount(amount);
+				vo.setPrice(price);
+				vo.setUser_no(userNo);
+				vo.setBook_no(bookNo);
 			
 				result.add(vo);
 			}

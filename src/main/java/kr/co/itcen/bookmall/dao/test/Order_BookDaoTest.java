@@ -35,6 +35,8 @@ public class Order_BookDaoTest {
 		vo1.setOrderNumber(2);
 		vo1.setBookNumber(6);
 		vo1.setAmount(19992);
+		
+		
 		dao.insert(vo1);
 		System.out.println(vo1);
 	}

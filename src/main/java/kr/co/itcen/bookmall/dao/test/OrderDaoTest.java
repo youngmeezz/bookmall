@@ -2,12 +2,8 @@ package kr.co.itcen.bookmall.dao.test;
 
 import java.util.List;
 
-import kr.co.itcen.bookmall.dao.BookDao;
 import kr.co.itcen.bookmall.dao.OrderDao;
-import kr.co.itcen.bookmall.dao.UserDao;
-import kr.co.itcen.bookmall.vo.BookVo;
 import kr.co.itcen.bookmall.vo.OrderVo;
-import kr.co.itcen.bookmall.vo.UserVo;
 
 public class OrderDaoTest {
 
@@ -53,11 +49,11 @@ public class OrderDaoTest {
 
 		OrderVo vo1 = new OrderVo();
 		
-		vo1.setOrderNumber(10);
-		vo1.setUserNumber(1);
-		vo1.setPrice(20000);
+		vo1.setNo((long)10);
+		vo1.setPayment(10000);
 		vo1.setDeliveryAddress("경기도 군포시");
-		vo1.setOrderStatus("판매중"); //상태코드값 string 바꾸기
+		vo1.setUserNo(1);
+		
 		
 		dao.insert(vo1);
 		System.out.println(vo1);

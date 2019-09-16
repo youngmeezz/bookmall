@@ -49,9 +49,9 @@ public class CartDaoTest {
 
 			CartVo vo1 = new CartVo();
 			
-			vo1.setBookNumber(10);
-			vo1.setUser_id((long) 5);
-			vo1.setCount(12311);
+			vo1.setBook_no(10);;
+			vo1.setCount(12);
+			vo1.setPrice(1000);
 			
 			
 			dao.insert(vo1);

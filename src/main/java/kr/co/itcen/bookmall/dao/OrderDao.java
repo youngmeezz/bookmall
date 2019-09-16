@@ -24,14 +24,14 @@ public class OrderDao {
 		try {
 			connection = getConnection();
 
-			String sql = "insert into orders(order_number,user_id,payment,delivery_address,order_status) values(?,?,?,?,?)";
+			String sql = "insert into orders(no,payment,delivery_address,user_no) values(?,?,?,?)";
 			pstmt = connection.prepareStatement(sql);
 			
-			pstmt.setLong(1, vo1.getOrderNumber());
-			pstmt.setLong(2, vo1.getUserNumber());
-			pstmt.setLong(3, vo1.getPrice());
-			pstmt.setString(4, vo1.getDeliveryAddress());
-			pstmt.setString(5, vo1.getOrderStatus());
+
+			pstmt.setLong(1, vo1.getNo());
+			pstmt.setLong(2, vo1.getPayment());
+			pstmt.setString(3, vo1.getDeliveryAddress());
+			pstmt.setInt(4, vo1.getUserNo());
 			
 			int count = pstmt.executeUpdate();
 			result = (count == 1);
@@ -72,28 +72,26 @@ public class OrderDao {
 
 			connection = getConnection();
 		
-			String sql = "select order_number,user_id,payment,delivery_address,order_status from orders;";
+			String sql = "select no,payment,delivery_address,user_no from orders;";
 			pstmt = connection.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 
-				
-				int orderNumber = rs.getInt("order_number");
-				int userNumber = rs.getInt("user_id"); 
+				int no = rs.getInt("no");
 				int price = rs.getInt("payment");
 				String deliveryAddress = rs.getString("delivery_address");
-				String orderStatus = rs.getString("order_status");
+				int userNumber = rs.getInt("user_id"); 
 
 				
 				OrderVo vo = new OrderVo();
 				
-				vo.setOrderNumber(orderNumber);
-				vo.setUserNumber(userNumber);
-				vo.setPrice(price);
+				vo.setNo((long) no);
+				vo.setPayment(price);
 				vo.setDeliveryAddress(deliveryAddress);
-				vo.setOrderStatus(orderStatus);
+				vo.setUserNo(userNumber);
+				
 				
 				result.add(vo);
 			}

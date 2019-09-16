@@ -27,7 +27,9 @@ public class Order_BookDao {
 		try {
 			connection = getConnection();
 
+			
 			String sql2 ="select orders.order_number, cart.book_id ,cart.amount from orders inner join cart on orders.user_id=cart.user_id";
+			//String sql = "insert into Order_BookVo(no,order_book_count,order_no,book_no) values(?,?,?,?)";
 			
 			pstmt = connection.prepareStatement(sql2);
 			
@@ -65,7 +67,7 @@ public class Order_BookDao {
 				int BookNumb = bVo.getBookNumber();
 				int orNumb = bVo.getOrderNumber();
 				
-				String sql = "insert into order_book(order_number,book_id,book_count) values(?,?,?)";
+				String sql = "insert into order_book(no,order_book_count,order_no,book_no) values(?,?,?)";
 				pstmt = connection.prepareStatement(sql);
 				
 				pstmt.setInt(1, orNumb);
@@ -119,22 +121,25 @@ public class Order_BookDao {
 
 			connection = getConnection();
 
-			String sql = "select order_number,book_id,book_count from order_book;";
+			String sql = "select no,order_book_count,order_no,book_no from order_book;";
 			pstmt = connection.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 
-				int orderNumber= rs.getInt("order_number");
-				int bookId  = rs.getInt("book_id");
-				int amount = rs.getInt("book_count");
+				int no= rs.getInt("no");
+				int amount = rs.getInt("order_book_count");
+				int orderNumber= rs.getInt("order_no");
+				int bookId  = rs.getInt("book_no");
+				
 				Order_BookVo vo = new Order_BookVo();
 				
-				vo.setBookNumber(bookId);
-				vo.setOrderNumber(orderNumber);
+				vo.setNo(no);
 				vo.setAmount(amount);
-				
+				vo.setOrderNumber(orderNumber);
+				vo.setBookNumber(bookId);
+		
 				result.add(vo);
 			}
 

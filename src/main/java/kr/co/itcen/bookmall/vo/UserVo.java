@@ -2,17 +2,11 @@ package kr.co.itcen.bookmall.vo;
 
 public class UserVo {
 	
-	private Long user_id;
-	private String userName;
-	private String phoneNumber;
-	private String email;
-	private String password;
-	
-	public Long getUser_id() {
-		return user_id;
+	public Long getNo() {
+		return no;
 	}
-	public void setUser_id(Long user_id) {
-		this.user_id = user_id;
+	public void setNo(Long no) {
+		this.no = no;
 	}
 	public String getUserName() {
 		return userName;
@@ -40,8 +34,14 @@ public class UserVo {
 	}
 	@Override
 	public String toString() {
-		return "사용자 [사용자번호=" + user_id + ", 사용자이름=" + userName + ", 전화번호=" + phoneNumber + ", 이메일="
-				+ email + ", 비밀번호=" + password + "]";
+		return "UserVo [no=" + no + ", userName=" + userName + ", phoneNumber=" + phoneNumber + ", email=" + email
+				+ ", password=" + password + "]";
 	}
+	private Long no;
+	private String userName;
+	private String phoneNumber;
+	private String email;
+	private String password;
+	
 	
 }

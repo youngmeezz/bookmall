@@ -2,17 +2,12 @@ package kr.co.itcen.bookmall.vo;
 
 public class BookVo {
 	
-	public int getBookNumber() {
-		return bookNumber;
+
+	public Long getNo() {
+		return no;
 	}
-	public void setBookNumber(int bookNumber) {
-		this.bookNumber = bookNumber;
-	}
-	public int getCategoryNumber() {
-		return categoryNumber;
-	}
-	public void setCategoryNumber(int categoryNumber) {
-		this.categoryNumber = categoryNumber;
+	public void setNo(Long no) {
+		this.no = no;
 	}
 	public String getTitle() {
 		return title;
@@ -20,30 +15,27 @@ public class BookVo {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public Long getPrice() {
-		return price;
+	public int getBook_price() {
+		return book_price;
 	}
-	public void setPrice(Long price) {
-		this.price = price;
+	public void setBook_price(int book_price) {
+		this.book_price = book_price;
 	}
-
-	public String getBookStatus() {
-		return bookStatus;
+	public int getCategory_no() {
+		return category_no;
 	}
-	public void setBookStatus(String bookStatus) {
-		this.bookStatus = bookStatus;
+	public void setCategory_no(int category_no) {
+		this.category_no = category_no;
 	}
 	@Override
 	public String toString() {
-		return "도서 [도서번호=" + bookNumber + ", 카테고리번호=" + categoryNumber + ", 도서제목=" + title
-				+ ", 도서가격=" + price + ", 도서상태=" + bookStatus + "]";
+		return "BookVo [no=" + no + ", title=" + title + ", book_price=" + book_price + ", category_no=" + category_no
+				+ "]";
 	}
-	private int bookNumber;
-	private int categoryNumber;
+	private Long no;
 	private String title;
-	private Long price;
-	private String bookStatus;
-	
-	
+	private int book_price;
+	private int category_no;
+
 
 }

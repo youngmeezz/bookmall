@@ -5,23 +5,19 @@ public class OrderVo {
 	//int로 하면 null이 들어가면 안되고
 	//integer로 하면 null이 들어감
 	
-	public int getOrderNumber() {
-		return orderNumber;
+
+
+	public Long getNo() {
+		return no;
 	}
-	public void setOrderNumber(int orderNumber) {
-		this.orderNumber = orderNumber;
+	public void setNo(Long no) {
+		this.no = no;
 	}
-	public int getUserNumber() {
-		return userNumber;
+	public int getPayment() {
+		return payment;
 	}
-	public void setUserNumber(int userNumber) {
-		this.userNumber = userNumber;
-	}
-	public int getPrice() {
-		return price;
-	}
-	public void setPrice(int price) {
-		this.price = price;
+	public void setPayment(int payment) {
+		this.payment = payment;
 	}
 	public String getDeliveryAddress() {
 		return deliveryAddress;
@@ -29,25 +25,24 @@ public class OrderVo {
 	public void setDeliveryAddress(String deliveryAddress) {
 		this.deliveryAddress = deliveryAddress;
 	}
-	public String getOrderStatus() {
-		return orderStatus;
+	public int getUserNo() {
+		return userNo;
 	}
-	public void setOrderStatus(String orderStatus) {
-		this.orderStatus = orderStatus;
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
 	}
-	
 	
 	@Override
 	public String toString() {
-		return "주문 [주문번호=" + orderNumber + ", 사용자번호=" + userNumber + ", 가격=" + price
-				+ ", 배송지=" + deliveryAddress + ", 주문상태=" + orderStatus + "]";
+		return "OrderVo [no=" + no + ", payment=" + payment + ", deliveryAddress=" + deliveryAddress + ", userNo="
+				+ userNo + "]";
 	}
 
-	private int orderNumber;
-	private int userNumber; 
-	private int price;
+	private Long no;
+	private int payment;
 	private String deliveryAddress;
-	private String orderStatus;
+	private int userNo;
+	
 	
 	
 }
