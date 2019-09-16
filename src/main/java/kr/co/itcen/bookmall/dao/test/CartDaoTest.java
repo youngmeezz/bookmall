@@ -9,7 +9,7 @@ public class CartDaoTest {
 
 		public static void main(String[] args) {
 
-			insertTest();
+			//insertTest();
 			selectTest();
 			//deleteAllTest();
 			//updateTest(1, "사람은 무엇으로 사는가");

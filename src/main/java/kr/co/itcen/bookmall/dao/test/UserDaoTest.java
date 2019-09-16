@@ -13,8 +13,8 @@ public class UserDaoTest {
 		//insertTest();
 		selectTest();
 		//deleteAllTest();
-		updateTest(38L,"홍길동");
-		selectTest();
+		//updateTest(38L,"홍길동");
+		//selectTest();
 	}
 
 	

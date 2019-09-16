@@ -11,7 +11,7 @@ public class OrderDaoTest {
 
 		
 		
-		insertTest();
+		//insertTest();
 		selectTest();
 		//deleteAllTest();
 		updateTest(1,"경기도 수원시");

@@ -9,7 +9,7 @@ public class Order_BookDaoTest {
 
 	public static void main(String[] args) {
 		
-		insertTest();
+		//insertTest();
 		selectTest();
 //		deleteAllTest();
 	}
