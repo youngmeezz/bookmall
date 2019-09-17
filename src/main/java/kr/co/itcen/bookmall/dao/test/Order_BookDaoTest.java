@@ -9,17 +9,13 @@ public class Order_BookDaoTest {
 
 	public static void main(String[] args) {
 		
-		//insertTest();
+		insertTest();
 		selectTest();
-//		deleteAllTest();
+
 	}
 
 	
-//	private static void deleteAllTest() {
-//		
-//		new ArtistDao().delete();
-//		
-//	}
+
 	
 	public static void insertTest() {
 

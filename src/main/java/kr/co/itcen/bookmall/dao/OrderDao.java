@@ -27,8 +27,6 @@ public class OrderDao {
 			String sql = "insert into orders(no,payment,delivery_address,user_no) values(null,?,?,?)";
 			pstmt = connection.prepareStatement(sql);
 			
-
-			//pstmt.setLong(1, vo1.getNo());
 			pstmt.setLong(1, vo1.getPayment());
 			pstmt.setString(2, vo1.getDeliveryAddress());
 			pstmt.setInt(3, vo1.getUserNo());
@@ -36,7 +34,11 @@ public class OrderDao {
 			int count = pstmt.executeUpdate();
 			result = (count == 1);
 			stmt = connection.createStatement();
-			
+			rs =stmt.executeQuery("select last_insert_id()");
+	          if(rs.next()) {
+	             Long no=rs.getLong(1);
+	              vo1.setNo(no);
+	          }
 		} catch (SQLException e) {
 			System.out.println("error:" + e);
 		} finally {

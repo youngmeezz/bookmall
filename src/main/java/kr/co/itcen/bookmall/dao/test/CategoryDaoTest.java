@@ -10,43 +10,51 @@ public class CategoryDaoTest {
 
 	public static void main(String[] args) {
 		
-		//insertTest();
+		insertTest();
 		selectTest();
-//		deleteAllTest();
+
 	}
 
+	public static void insertTest() {
+
+		System.out.println("insert test---------------------------------------------------------");
+		
+		CategoryDao dao = new CategoryDao();
+
 	
-//	private static void deleteAllTest() {
-//		
-//		new ArtistDao().delete();
-//		
-//	}
+		CategoryVo vo1 = new CategoryVo();
+		vo1.setCategory_name("소설");
+		dao.insert(vo1);
+		System.out.println(vo1);
+		
+		CategoryVo vo2 = new CategoryVo();
+		vo2.setCategory_name("수필");
+		dao.insert(vo2);
+		System.out.println(vo2);
 	
-//	public static void insertTest() {
-//
-//		System.out.println("insert test---------------------------------------------------------");
-//		
-//		BookDao dao = new BookDao();
-//
-//		BookVo vo1 = new BookVo();
-//		
-//		vo1.setCategoryNumber(1);
-//		vo1.setTitle("90년대생이 온다");
-//		vo1.setPrice((long) 50000);
-//
-//		dao.insert(vo1);
-//		System.out.println(vo1);
-//
-//		ArtistVo vo2 = new ArtistVo();
-//		vo2.setName("BTS");
-//		dao.insert(vo2);
-//		System.out.println(vo2);
-//
-//		ArtistVo vo3 = new ArtistVo();
-//		vo3.setName("소녀시대");
-//		dao.insert(vo3);
-//		System.out.println(vo3);
-//	}
+		CategoryVo vo3 = new CategoryVo();
+		vo3.setCategory_name("컴퓨터/IT");
+		dao.insert(vo3);
+		System.out.println(vo3);
+		
+		CategoryVo vo4 = new CategoryVo();
+		vo4.setCategory_name("인문");
+		dao.insert(vo4);
+		System.out.println(vo4);
+		
+		CategoryVo vo5 = new CategoryVo();
+		vo5.setCategory_name("경제");
+		dao.insert(vo5);
+		System.out.println(vo5);
+		
+		
+		CategoryVo vo6 = new CategoryVo();
+		vo6.setCategory_name("예술");
+		dao.insert(vo6);
+		System.out.println(vo6);
+		
+
+	}
 
 	private static void selectTest() {
 

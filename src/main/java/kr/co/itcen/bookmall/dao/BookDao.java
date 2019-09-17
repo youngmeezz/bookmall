@@ -24,19 +24,24 @@ public class BookDao {
 		try {
 			connection = getConnection();
 
-			String sql = "insert into book(no,title,book_price,category_no) values(null,?,?,?)";
+			String sql = "insert into book values(null,?,?,?)";
 			pstmt = connection.prepareStatement(sql);
-			
-			//pstmt.setInt(1, vo1.getCategory_no());
-			pstmt.setString(2, vo1.getTitle());
-			pstmt.setLong(3, vo1.getBook_price());
-			pstmt.setInt(4, vo1.getCategory_no());
+		
+			pstmt.setString(1, vo1.getTitle());
+			pstmt.setLong(2, vo1.getBook_price());
+			pstmt.setInt(3, vo1.getCategory_no());
 
 			
 			int count = pstmt.executeUpdate();
 			result = (count == 1);
 			
 			stmt = connection.createStatement();
+			
+			rs =stmt.executeQuery("select last_insert_id()");
+	          if(rs.next()) {
+	             Long no= rs.getLong(1);
+	              vo1.setNo(no);
+	          }
 			
 		} catch (SQLException e) {
 			System.out.println("error:" + e);

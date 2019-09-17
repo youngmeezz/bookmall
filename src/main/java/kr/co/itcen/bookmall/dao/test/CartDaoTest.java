@@ -9,38 +9,12 @@ public class CartDaoTest {
 
 		public static void main(String[] args) {
 
-			//insertTest();
+			insertTest();
 			selectTest();
-			//deleteAllTest();
-			//updateTest(1, "사람은 무엇으로 사는가");
+		
 		}
 
-		
-
-
-//		private static void updateTest(int book_id, String name) {
-//			// TODO Auto-generated method stub
-//
-//			System.out.println("update test---------------------------------------------------------");
-//			
-//			BookDao dao = new BookDao();
-//			dao.update(book_id, name);
-//			
-//			List<BookVo> list = dao.getList();
-//
-//			for (BookVo vo : list) {
-//				System.out.println(vo);
-//			}
-//			
-//		}
-
-
-		private static void deleteAllTest() {
-			
-			new CartDao().delete();
-			
-		}
-		
+	
 		public static void insertTest() {
 
 			System.out.println("insert test---------------------------------------------------------");
@@ -49,9 +23,12 @@ public class CartDaoTest {
 
 			CartVo vo1 = new CartVo();
 			
-			vo1.setBook_no(10);;
+			//vo1.setNo((long) 1);
+			//vo1.setBook_no(10);
 			vo1.setCount(12);
 			vo1.setPrice(1000);
+			vo1.setUser_no(1);;
+			vo1.setBook_no(2);
 			
 			
 			dao.insert(vo1);

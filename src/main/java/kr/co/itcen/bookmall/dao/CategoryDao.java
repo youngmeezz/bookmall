@@ -23,17 +23,19 @@ public class CategoryDao {
 			try {
 				connection = getConnection();
 
-				String sql = "insert into category(no,category_name) values(null,?)";
+				String sql = "insert into category values(null,?)";
 				pstmt = connection.prepareStatement(sql);
-				
-				//pstmt.setInt(1, vo1.getCategory_no());
 				pstmt.setString(1, vo1.getCategory_name());
-
 				
 				int count = pstmt.executeUpdate();
 				result = (count == 1);
 				
 				stmt = connection.createStatement();
+				rs =stmt.executeQuery("select last_insert_id()");
+		          if(rs.next()) {
+		             Long no=rs.getLong(1);
+		              vo1.setCategory_no(no);
+		          }
 				
 			} catch (SQLException e) {
 				System.out.println("error:" + e);
@@ -77,7 +79,7 @@ public class CategoryDao {
 
 				while (rs.next()) {
 
-					int category_no = rs.getInt("no");
+					Long category_no = rs.getLong("no");
 					String category_name = rs.getString("category_name");
 					
 					CategoryVo vo = new CategoryVo();

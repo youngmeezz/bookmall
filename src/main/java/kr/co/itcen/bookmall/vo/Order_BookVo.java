@@ -2,12 +2,10 @@ package kr.co.itcen.bookmall.vo;
 
 public class Order_BookVo {
 
-	
-		
-		public int getNo() {
-		return no;
+	public Long getNo() {
+	return no;
 	}
-	public void setNo(int no) {
+	public void setNo(Long no) {
 		this.no = no;
 	}
 	public int getAmount() {
@@ -33,7 +31,7 @@ public class Order_BookVo {
 		return "Order_BookVo [no=" + no + ", amount=" + amount + ", orderNumber=" + orderNumber + ", bookNumber="
 				+ bookNumber + "]";
 	}
-		private int no;
+		private Long no;
 		private int amount;
 		private int orderNumber;
 		private int bookNumber;

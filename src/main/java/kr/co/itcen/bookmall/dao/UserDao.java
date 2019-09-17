@@ -27,7 +27,6 @@ public class UserDao {
 			pstmt = connection.prepareStatement(sql);
 
 
-			//pstmt.setLong(1, vo1.getNo());
 			pstmt.setString(1, vo1.getUserName());
 			pstmt.setString(2, vo1.getPhoneNumber());
 			pstmt.setString(3, vo1.getEmail());
@@ -36,7 +35,11 @@ public class UserDao {
 			int count = pstmt.executeUpdate();
 			result = (count == 1);
 			stmt = connection.createStatement();
-
+			rs =stmt.executeQuery("select last_insert_id()");
+	          if(rs.next()) {
+	             Long no=rs.getLong(1);
+	              vo1.setNo(no);
+	          }
 		} catch (SQLException e) {
 			System.out.println("error:" + e);
 		} finally {

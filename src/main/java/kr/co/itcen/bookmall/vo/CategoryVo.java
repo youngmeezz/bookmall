@@ -8,10 +8,10 @@ public class CategoryVo {
 	}
 
 	
-	public int getCategory_no() {
+	public Long getCategory_no() {
 		return category_no;
 	}
-	public void setCategory_no(int category_no) {
+	public void setCategory_no(Long category_no) {
 		this.category_no = category_no;
 	}
 	public String getCategory_name() {
@@ -21,6 +21,6 @@ public class CategoryVo {
 		this.category_name = category_name;
 	}
 	
-	private int category_no;
+	private Long category_no;
 	private String category_name;
 }
