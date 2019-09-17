@@ -23,11 +23,11 @@ public class CategoryDao {
 			try {
 				connection = getConnection();
 
-				String sql = "insert into category(no,category_name) values(?,?)";
+				String sql = "insert into category(no,category_name) values(null,?)";
 				pstmt = connection.prepareStatement(sql);
 				
-				pstmt.setInt(1, vo1.getCategory_no());
-				pstmt.setString(2, vo1.getCategory_name());
+				//pstmt.setInt(1, vo1.getCategory_no());
+				pstmt.setString(1, vo1.getCategory_name());
 
 				
 				int count = pstmt.executeUpdate();

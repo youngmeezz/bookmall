@@ -24,10 +24,10 @@ public class BookDao {
 		try {
 			connection = getConnection();
 
-			String sql = "insert into book(no,title,book_price,category_no) values(?,?,?,?)";
+			String sql = "insert into book(no,title,book_price,category_no) values(null,?,?,?)";
 			pstmt = connection.prepareStatement(sql);
 			
-			pstmt.setInt(1, vo1.getCategory_no());
+			//pstmt.setInt(1, vo1.getCategory_no());
 			pstmt.setString(2, vo1.getTitle());
 			pstmt.setLong(3, vo1.getBook_price());
 			pstmt.setInt(4, vo1.getCategory_no());

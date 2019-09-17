@@ -23,15 +23,15 @@ public class UserDao {
 		try {
 			connection = getConnection();
 
-			String sql = "insert into user(no,name,phone,email,password) values(?,?,?,?,password(?))";
+			String sql = "insert into user(no,name,phone,email,password) values(null,?,?,?,password(?))";
 			pstmt = connection.prepareStatement(sql);
 
 
-			pstmt.setLong(1, vo1.getNo());
-			pstmt.setString(2, vo1.getUserName());
-			pstmt.setString(3, vo1.getPhoneNumber());
-			pstmt.setString(4, vo1.getEmail());
-			pstmt.setString(5, vo1.getPassword());
+			//pstmt.setLong(1, vo1.getNo());
+			pstmt.setString(1, vo1.getUserName());
+			pstmt.setString(2, vo1.getPhoneNumber());
+			pstmt.setString(3, vo1.getEmail());
+			pstmt.setString(4, vo1.getPassword());
 
 			int count = pstmt.executeUpdate();
 			result = (count == 1);

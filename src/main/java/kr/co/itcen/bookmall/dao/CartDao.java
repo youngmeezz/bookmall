@@ -25,15 +25,15 @@ public class CartDao {
 		try {
 			connection = getConnection();
 
-			String sql = "insert into cart(no,count,price,user_no,book_no) values(?,?,?,?,?)";
+			String sql = "insert into cart(no,count,price,user_no,book_no) values(null,?,?,?,?)";
 			pstmt = connection.prepareStatement(sql);
 			
 			
-			pstmt.setInt(1, vo1.getBook_no());
-			pstmt.setInt(2, vo1.getCount());
-			pstmt.setInt(3, vo1.getPrice());
-			pstmt.setInt(4, vo1.getUser_no());
-			pstmt.setInt(5, vo1.getBook_no());
+			//pstmt.setInt(1, vo1.getBook_no());
+			pstmt.setInt(1, vo1.getCount());
+			pstmt.setInt(2, vo1.getPrice());
+			pstmt.setInt(3, vo1.getUser_no());
+			pstmt.setInt(4, vo1.getBook_no());
 			
 			
 			//pstmt.setInt(1, vo1.getBookNumber());
@@ -78,7 +78,7 @@ public class CartDao {
 
 			connection = getConnection();
 
-			String sql = "select (no,count,price,user_no,book_no)from cart;";
+			String sql = "select no,count,price,user_no,book_no from cart;";
 			pstmt = connection.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();

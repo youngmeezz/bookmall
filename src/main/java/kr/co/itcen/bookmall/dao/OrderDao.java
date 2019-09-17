@@ -24,14 +24,14 @@ public class OrderDao {
 		try {
 			connection = getConnection();
 
-			String sql = "insert into orders(no,payment,delivery_address,user_no) values(?,?,?,?)";
+			String sql = "insert into orders(no,payment,delivery_address,user_no) values(null,?,?,?)";
 			pstmt = connection.prepareStatement(sql);
 			
 
-			pstmt.setLong(1, vo1.getNo());
-			pstmt.setLong(2, vo1.getPayment());
-			pstmt.setString(3, vo1.getDeliveryAddress());
-			pstmt.setInt(4, vo1.getUserNo());
+			//pstmt.setLong(1, vo1.getNo());
+			pstmt.setLong(1, vo1.getPayment());
+			pstmt.setString(2, vo1.getDeliveryAddress());
+			pstmt.setInt(3, vo1.getUserNo());
 			
 			int count = pstmt.executeUpdate();
 			result = (count == 1);
