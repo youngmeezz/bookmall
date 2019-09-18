@@ -82,9 +82,9 @@ public class UserDao {
 
 			while (rs.next()) {
 
-				Long userId = rs.getLong("user_id");
+				Long userId = rs.getLong("no");
 				String userName = rs.getString("name");
-				String phoneNumber = rs.getString("phone_number");
+				String phoneNumber = rs.getString("phone");
 				String email = rs.getString("email");
 				String password = rs.getString("password");
 

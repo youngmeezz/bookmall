@@ -9,22 +9,16 @@ public class OrderDaoTest {
 
 	public static void main(String[] args) {
 
-		
-		
 		insertTest();
 		selectTest();
-	
 
 	}
-	
-
 	
 	public static void insertTest() {
 
 		System.out.println("insert test---------------------------------------------------------");
 		
 		OrderDao dao = new OrderDao();
-
 		OrderVo vo1 = new OrderVo();
 		
 		vo1.setNo((long)10);

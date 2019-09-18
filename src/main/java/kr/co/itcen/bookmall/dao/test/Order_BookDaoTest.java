@@ -13,21 +13,15 @@ public class Order_BookDaoTest {
 		selectTest();
 
 	}
-
 	
-
 	
 	public static void insertTest() {
 
 		System.out.println("insert test---------------------------------------------------------");
 		
 		Order_BookDao dao = new Order_BookDao();
-
 		Order_BookVo vo1 = new Order_BookVo();
-		
-//		vo1.setCategoryNumber(1);
-//		vo1.setTitle("90년대생이 온다");
-//		vo1.setPrice((long) 50000);
+
 		vo1.setOrderNumber(2);
 		vo1.setBookNumber(6);
 		vo1.setAmount(19992);

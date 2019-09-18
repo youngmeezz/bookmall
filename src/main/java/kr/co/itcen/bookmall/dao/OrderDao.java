@@ -24,7 +24,7 @@ public class OrderDao {
 		try {
 			connection = getConnection();
 
-			String sql = "insert into orders(no,payment,delivery_address,user_no) values(null,?,?,?)";
+			String sql = "insert into orders values(null,?,?,?)";
 			pstmt = connection.prepareStatement(sql);
 			
 			pstmt.setLong(1, vo1.getPayment());
@@ -84,7 +84,7 @@ public class OrderDao {
 				int no = rs.getInt("no");
 				int price = rs.getInt("payment");
 				String deliveryAddress = rs.getString("delivery_address");
-				int userNumber = rs.getInt("user_id"); 
+				int userNumber = rs.getInt("user_no"); 
 
 				
 				OrderVo vo = new OrderVo();

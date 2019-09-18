@@ -23,8 +23,6 @@ public class CartDaoTest {
 
 			CartVo vo1 = new CartVo();
 			
-			//vo1.setNo((long) 1);
-			//vo1.setBook_no(10);
 			vo1.setCount(12);
 			vo1.setPrice(1000);
 			vo1.setUser_no(1);;
