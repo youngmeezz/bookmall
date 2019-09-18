@@ -23,7 +23,7 @@ public class UserDao {
 		try {
 			connection = getConnection();
 
-			String sql = "insert into user(no,name,phone,email,password) values(null,?,?,?,password(?))";
+			String sql = "insert into user(no,name,phone,email,password) values(null,?,?,?,?)";
 			pstmt = connection.prepareStatement(sql);
 
 

@@ -34,7 +34,7 @@ public class OrderVo {
 	
 	@Override
 	public String toString() {
-		return "OrderVo [no=" + no + ", payment=" + payment + ", deliveryAddress=" + deliveryAddress + ", userNo="
+		return "주문 [번호=" + no + ", 주문가격=" + payment + ", 배송지=" + deliveryAddress + ", 사용자번호="
 				+ userNo + "]";
 	}
 

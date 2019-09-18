@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.co.itcen.bookmall.vo.CategoryVo;
 import kr.co.itcen.bookmall.vo.Order_BookVo;
 
 public class Order_BookDao {
@@ -20,15 +21,15 @@ public class Order_BookDao {
 		ResultSet rs =null;
 		Boolean result = false;
 		
-		
 		try {
 			connection = getConnection();
 			String sql= "insert into order_book values(null,?,?,?)";
 			pstmt = connection.prepareStatement(sql);
+
+			pstmt.setLong(1, vo1.getAmount());
+			pstmt.setInt(2, vo1.getOrderNumber());
+			pstmt.setInt(3, vo1.getBookNumber());
 			
-			pstmt.setLong(1, vo1.getBookNumber());
-			pstmt.setLong(2, vo1.getAmount());
-			pstmt.setLong(3, vo1.getOrderNumber());
 
 			
 			int count = pstmt.executeUpdate();
@@ -42,8 +43,9 @@ public class Order_BookDao {
 				
 			}
 			
-			String sql1 = "select price from book where no="+vo1.getBookNumber();
+			String sql1 = "select book_price from book where no= ?";
 			pstmt = connection.prepareStatement(sql1);
+			pstmt.setLong(1,  vo1.getBookNumber());
 			rs=pstmt.executeQuery();
 			long total_price = 0; 
 			
@@ -52,8 +54,9 @@ public class Order_BookDao {
 				 total_price = (long) (price*vo1.getAmount());
 			 }
 			 
-			 String sql2 = "select price from orders where no="+vo1.getOrderNumber();
+			 String sql2 = "select payment from orders where no= ?";
 			 pstmt = connection.prepareStatement(sql2);
+			 pstmt.setLong(1, vo1.getOrderNumber());
 				rs=pstmt.executeQuery(); 
 				
 			 while(rs.next()) {
@@ -62,7 +65,7 @@ public class Order_BookDao {
 					 
 			}
 			 
-			 String sql3 ="update orders set price=? where no=?";
+			 String sql3 ="update orders set payment=? where no=?";
 			
 			 pstmt = connection.prepareStatement(sql3);
 				
@@ -74,7 +77,7 @@ public class Order_BookDao {
 			
 			
 		} catch (SQLException e) {
-			System.out.println("error: "+e);
+			e.printStackTrace();
 		}finally {
 			try {
 			if(rs!=null) {
@@ -97,7 +100,8 @@ public class Order_BookDao {
 
 	}
 	public ArrayList getList() {
-		ArrayList result = new ArrayList();
+		
+		ArrayList result = new ArrayList<Order_BookVo>();
 		
 		Connection connection = null;
 		PreparedStatement pstmt = null;
@@ -114,18 +118,19 @@ public class Order_BookDao {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
+
 				Long no = rs.getLong(1);
 				String book_title=rs.getString(2);
-				Long order_book_count=rs.getLong(3);
+				Long book_count=rs.getLong(3);
 				
 				ArrayList temp = new ArrayList();
 				temp.add(no);
 				temp.add(book_title);
-				temp.add(order_book_count);
-
-
+				temp.add(book_count);
+				
 				result.add(temp);
 			}
+
 			
 			
 		} catch (SQLException e) {
@@ -148,6 +153,7 @@ public class Order_BookDao {
 
 		return result;
 	}
+	
 
 	private Connection getConnection() throws SQLException {
 		Connection connection = null;

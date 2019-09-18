@@ -39,14 +39,12 @@ public class BookDaoTest {
 		
 		
 		BookVo vo3 = new BookVo();
-		vo3.setTitle("성공한 사람듦나 갖고있는 놀라운 성공 공식의 힘");
+		vo3.setTitle("성공한 사람들이나 갖고있는 놀라운 성공 공식의 힘");
 		vo3.setBook_price(15120);
 		vo3.setCategory_no(3);
 		dao.insert(vo3);
 		System.out.println(vo3);
 		
-		
-
 	}
 
 	private static void selectTest() {

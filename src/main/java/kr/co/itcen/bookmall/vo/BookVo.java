@@ -29,13 +29,12 @@ public class BookVo {
 	}
 	@Override
 	public String toString() {
-		return "BookVo [no=" + no + ", title=" + title + ", book_price=" + book_price + ", category_no=" + category_no
+		return "도서 [번호=" + no + ", 제목=" + title + ", 책 가격=" + book_price + ", 카테고리번호=" + category_no
 				+ "]";
 	}
 	private Long no;
 	private String title;
 	private int book_price;
 	private int category_no;
-
 
 }

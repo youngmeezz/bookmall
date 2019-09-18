@@ -31,6 +31,18 @@ public class UserDaoTest {
 		
 		dao.insert(vo1);
 		System.out.println(vo1);
+		
+		
+		UserVo vo2 = new UserVo();
+		
+		vo2.setUserName("강모모");
+		vo2.setPhoneNumber("010-1922-8219");
+		vo2.setEmail("krkjd121@gmail.com");
+		vo2.setPassword("129aedf");
+		
+		dao.insert(vo2);
+		System.out.println(vo2);
+		
 
 	}
 	

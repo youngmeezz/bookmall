@@ -53,7 +53,6 @@ public class CategoryDaoTest {
 		dao.insert(vo6);
 		System.out.println(vo6);
 		
-
 	}
 
 	private static void selectTest() {

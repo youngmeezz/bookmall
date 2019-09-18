@@ -28,7 +28,7 @@ public class Order_BookVo {
 	}
 		@Override
 	public String toString() {
-		return "Order_BookVo [no=" + no + ", amount=" + amount + ", orderNumber=" + orderNumber + ", bookNumber="
+		return "주문도서 [번호=" + no + ", 개수=" + amount + ", 주문번호=" + orderNumber + ", 도서번호="
 				+ bookNumber + "]";
 	}
 		private Long no;

@@ -34,8 +34,8 @@ public class UserVo {
 	}
 	@Override
 	public String toString() {
-		return "UserVo [no=" + no + ", userName=" + userName + ", phoneNumber=" + phoneNumber + ", email=" + email
-				+ ", password=" + password + "]";
+		return "사용자 [번호=" + no + ", 사용자이름=" + userName + ", 전화번호=" + phoneNumber + ", 이메일=" + email
+				+ ", 비밀번호=" + password + "]";
 	}
 	private Long no;
 	private String userName;

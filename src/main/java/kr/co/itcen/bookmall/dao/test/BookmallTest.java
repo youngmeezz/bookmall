@@ -1,5 +1,6 @@
 package kr.co.itcen.bookmall.dao.test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.itcen.bookmall.dao.BookDao;
@@ -37,11 +38,11 @@ public class BookmallTest {
 
 		System.out.println("=================order_book===================");
 
-		Order_BookDao order_bookdao = new Order_BookDao();
-
-		List<Order_BookVo> orderbooklist = order_bookdao.getList();
-		for (int i = 0; i < orderbooklist.size(); i++) {
-			System.out.println(orderbooklist.get(i));
+		Order_BookDao dao = new Order_BookDao();
+		ArrayList list = dao.getList();
+		
+		for(int i =0;i<list.size();i++) {
+			System.out.println(list.get(i));
 		}
 
 		System.out.println("===================order=====================");
